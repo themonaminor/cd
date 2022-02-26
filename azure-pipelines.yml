@@ -1,0 +1,42 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+variables:
+- group: azuredevops-argocd
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: CmdLine@2
+  inputs:
+    script: 'sed -i "s|imagename|$(repo):$(imagetag)|g" $(System.DefaultWorkingDirectory)/deployment.yaml > $(System.DefaultWorkingDirectory)/deployment_cd.yaml'
+
+- task: CmdLine@2
+  inputs:
+    script: cat $(System.DefaultWorkingDirectory)/deployment_cd.yaml
+
+- task: CmdLine@2
+  inputs:
+    script: git config --global user.email "$(email)"
+
+- task: CmdLine@2
+  inputs:
+    script: git config --global user.name "$(name)"
+
+- task: CmdLine@2
+  inputs:
+    script: git add .
+
+- task: CmdLine@2
+  inputs:
+    script: git commit -m 'Done by azure devops image building pipeline $(imagetag)'
+
+- task: CmdLine@2
+  inputs:
+    script: git push -u origin --all
