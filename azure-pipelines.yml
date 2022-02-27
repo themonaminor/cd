@@ -39,4 +39,4 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: git push https://themonaminor:mona@987654321@github.com/themonaminor/cd.git HEAD:main
+    script: git push
