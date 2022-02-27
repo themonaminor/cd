@@ -39,9 +39,12 @@ steps:
   inputs:
     script: cat $(System.DefaultWorkingDirectory)/cd/deployment_cd.yaml
 
+
 - task: CmdLine@2
   inputs:
     script: git add .
+    workingDirectory: $(System.DefaultWorkingDirectory)/cd
+
 
 - task: CmdLine@2
   inputs:
