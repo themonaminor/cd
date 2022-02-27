@@ -4,6 +4,8 @@
 # https://aka.ms/yaml
 trigger:
 - main
+variables:
+- group: azuredevops-argocd
 
 pool:
   vmImage: ubuntu-latest
