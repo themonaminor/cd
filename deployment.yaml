@@ -18,7 +18,7 @@ spec:
         app: flaskdemo
     spec:
       containers:
-      - image: imagename
+      - image: monaminor/azuredevops_ci:66
         name: flaskdemo
         resources: {}
 status: {}
