@@ -49,10 +49,12 @@ steps:
 - task: CmdLine@2
   inputs:
     script: git commit -m 'Done by azure devops image building pipeline $(imagetag)'
+    workingDirectory: $(System.DefaultWorkingDirectory)/cd
 
 - task: CmdLine@2
   inputs:
     script: git push
+    workingDirectory: $(System.DefaultWorkingDirectory)/cd
 
 - checkout: self
   clean: true
