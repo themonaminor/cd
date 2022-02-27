@@ -4,6 +4,16 @@
 # https://aka.ms/yaml
 trigger:
 - main
+
+resources:
+  pipelines:
+  - pipeline: imagebuilding
+    source: security-lib-ci
+    trigger: 
+      branches:
+        include: 
+        - main
+
 variables:
 - group: azuredevops-argocd
 
