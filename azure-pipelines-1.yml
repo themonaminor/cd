@@ -33,15 +33,15 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'sed -i "s|imagename|$(repo):$(imagetag)|g" $(System.DefaultWorkingDirectory)/s/cd/deployment.yaml > $(System.DefaultWorkingDirectory)/s/cd/deployment_cd.yaml'
+    script: 'sed -i "s|imagename|$(repo):$(imagetag)|g" $(System.DefaultWorkingDirectory)/cd/deployment.yaml > $(System.DefaultWorkingDirectory)/cd/deployment_cd.yaml'
 
 - task: CmdLine@2
   inputs:
-    script: cat $(System.DefaultWorkingDirectory)/deployment_cd.yaml
+    script: cat $(System.DefaultWorkingDirectory)/cd/deployment_cd.yaml
 
 - task: CmdLine@2
   inputs:
-    script: git add .
+    script: git add $(System.DefaultWorkingDirectory)/cd/*
 
 - task: CmdLine@2
   inputs:
