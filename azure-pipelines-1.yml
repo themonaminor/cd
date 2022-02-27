@@ -29,6 +29,10 @@ steps:
 
 - task: CmdLine@2
   inputs:
+    script: ls -la
+
+- task: CmdLine@2
+  inputs:
     script: 'sed -i "s|imagename|$(repo):$(imagetag)|g" $(System.DefaultWorkingDirectory)/s/cd/deployment.yaml > $(System.DefaultWorkingDirectory)/s/cd/deployment_cd.yaml'
 
 - task: CmdLine@2
