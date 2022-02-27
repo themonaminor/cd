@@ -41,7 +41,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: git add $(System.DefaultWorkingDirectory)/cd/*
+    script: git add .
 
 - task: CmdLine@2
   inputs:
