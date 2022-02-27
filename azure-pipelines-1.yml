@@ -48,7 +48,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: git commit -m 'Done by azure devops image building pipeline $(imagetag)'
+    script: git commit -m 'Done by azure devops image building pipeline $(imagetag) [skip ci]'
     workingDirectory: $(System.DefaultWorkingDirectory)/cd
 
 - task: CmdLine@2
