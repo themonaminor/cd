@@ -25,7 +25,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'sed -i "s|imagename|$(repo):$(imagetag)|g" $(System.DefaultWorkingDirectory)/deployment.yaml > $(System.DefaultWorkingDirectory)/deployment_cd.yaml'
+    script: 'sed -i "s|imagename|$(repo):$(imagetag)|g" $(Pipeline.Workspace)/deployment.yaml > $(Pipeline.Workspace)/deployment_cd.yaml'
 
 - task: CmdLine@2
   inputs:
